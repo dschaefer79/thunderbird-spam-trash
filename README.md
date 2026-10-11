@@ -58,7 +58,10 @@ The add-on makes no network requests and collects no data.
 ./build.sh
 ```
 
-This creates `dist/empty-spam-trash-<version>.xpi`.
+This creates two identical archives:
+
+- `dist/empty-spam-trash-<version>.zip`: upload this to [addons.thunderbird.net](https://addons.thunderbird.net/developers/).
+- `dist/empty-spam-trash-<version>.xpi`: install this directly in Thunderbird.
 
 ## Releasing
 
@@ -67,7 +70,7 @@ Update `version` in `manifest.json` and add an entry to `CHANGELOG.md`. Then bui
 ```sh
 ./build.sh
 git tag v1.1.0 && git push origin v1.1.0
-gh release create v1.1.0 dist/empty-spam-trash-1.1.0.xpi --title v1.1.0 --notes-file <(sed -n '/^## 1.1.0/,/^## /{/^## /!p}' CHANGELOG.md)
+gh release create v1.1.0 dist/empty-spam-trash-1.1.0.xpi dist/empty-spam-trash-1.1.0.zip --title v1.1.0 --notes-file <(sed -n '/^## 1.1.0/,/^## /{/^## /!p}' CHANGELOG.md)
 ```
 
 ## License
